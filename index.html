@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ProSynth Bio — Manifesto</title>
   <link rel="icon" href="logo.png" type="image/png"/>
+
+  <!-- Load Particles.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
   <style>
     :root {
       --bg-color: #000000;
@@ -15,13 +19,31 @@
       --button-gradient-hover: linear-gradient(90deg, #ff6f61, #b22222);
     }
 
-    body {
+    html, body {
       margin: 0;
-      background: var(--bg-color);
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg-color);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
       padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
       line-height: 1.6;
-      font-weight: 300;
     }
 
     body * {
@@ -128,85 +150,153 @@
 </head>
 <body>
 
-  <div class="brand-header">
-    <img src="logo.png" alt="ProSynth Bio Logo"/>
-    <span>ProSynth Bio</span>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <div class="content">
+    <div class="brand-header">
+      <img src="logo.png" alt="ProSynth Bio Logo"/>
+      <span>ProSynth Bio</span>
+    </div>
+
+    <h1>🚀 The ProSynth Bio Manifesto</h1>
+
+    <blockquote>
+      “Why the hell can an <span class="highlight">8-year-old</span> build a video game—but not cure cancer?”
+    </blockquote>
+
+    <p>
+      Drug discovery should be as easy as coding a website.
+    </p>
+
+    <p>
+      But right now, biology is locked behind:
+    </p>
+
+    <ul>
+      <li>paywalls</li>
+      <li>PhDs</li>
+      <li>billion-dollar labs</li>
+    </ul>
+
+    <p>
+      <span class="highlight">I’m done waiting.</span>
+    </p>
+
+    <p>
+      I’m building <strong>ProSynth Bio</strong> — <em>the <span class="highlight">Cure-Anything Copilot</span>.</em>
+    </p>
+
+    <p>
+      Tools so simple that even an <span class="highlight">8-year-old</span> could cure cancer.
+    </p>
+
+    <h2>Here’s What I’ve Already Built:</h2>
+    <ul>
+      <li>ProtBERT transforms protein sequences into math.</li>
+      <li>Search tools to discover which molecules look alike.</li>
+      <li>3D protein structures spinning live in your browser.</li>
+    </ul>
+
+    <p>
+      Cool. But that’s just the sandbox.
+    </p>
+
+    <h2>Here’s Where I’m Going Next:</h2>
+    <ul>
+      <li>Mining papers and patents with BioBERT — so you know every discovery and legal landmine before you even start.</li>
+      <li>Generating new proteins and peptides with ProtGPT2 — therapeutics no human’s ever typed out before.</li>
+      <li>Predicting how molecules fold and bind with AlphaFold and docking.</li>
+      <li>Suggesting your next experiments automatically — so you don’t waste months on dead-end assays.</li>
+    </ul>
+
+    <blockquote>
+      “Biology shouldn’t be an exclusive club for pharma giants. It should be a <span class="highlight">playground for everyone</span> — even cracked high schoolers hacking proteins at 2am.”
+    </blockquote>
+
+    <h2>I’m Looking for the Cracked Ones:</h2>
+    <ul>
+      <li>High schoolers who want to build the next drug company.</li>
+      <li>College students sick of waiting for a PhD to innovate.</li>
+      <li>Indie labs running bio moonshots on ramen budgets.</li>
+    </ul>
+
+    <p>
+      Because biotech’s future belongs to the rebels, the dreamers, and the <span class="highlight">cracked builders</span> who refuse to wait for permission.
+    </p>
+
+    <h2>Want In?</h2>
+    <p>
+      Drop your email below — and tell me the <span class="highlight">craziest thing</span> you’ve ever built.
+    </p>
+
+    <a href="mailto:hello@prosynthbio.com" class="cta">Join the Movement</a>
+
+    <footer>
+      © 2025 ProSynth Bio — Dragging biotech into the future.
+    </footer>
   </div>
 
-  <h1>🚀 The ProSynth Bio Manifesto</h1>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" }
+        },
+        "opacity": {
+          "value": 0.3,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.2,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "repulse": { "distance": 100 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 
-  <blockquote>
-    “Why the hell can an <span class="highlight">8-year-old</span> build a video game—but not cure cancer?”
-  </blockquote>
-
-  <p>
-    Drug discovery should be as easy as coding a website.
-  </p>
-
-  <p>
-    But right now, biology is locked behind:
-  </p>
-
-  <ul>
-    <li>paywalls</li>
-    <li>PhDs</li>
-    <li>billion-dollar labs</li>
-  </ul>
-
-  <p>
-    <span class="highlight">I’m done waiting.</span>
-  </p>
-
-  <p>
-    I’m building <strong>ProSynth Bio</strong> — <em>the <span class="highlight">Cure-Anything Copilot</span>.</em>
-  </p>
-
-  <p>
-    Tools so simple that even an <span class="highlight">8-year-old</span> could cure cancer.
-  </p>
-
-  <h2>Here’s What I’ve Already Built:</h2>
-  <ul>
-    <li>ProtBERT transforms protein sequences into math.</li>
-    <li>Search tools to discover which molecules look alike.</li>
-    <li>3D protein structures spinning live in your browser.</li>
-  </ul>
-
-  <p>
-    Cool. But that’s just the sandbox.
-  </p>
-
-  <h2>Here’s Where I’m Going Next:</h2>
-  <ul>
-    <li>Mining papers and patents with BioBERT — so you know every discovery and legal landmine before you even start.</li>
-    <li>Generating new proteins and peptides with ProtGPT2 — therapeutics no human’s ever typed out before.</li>
-    <li>Predicting how molecules fold and bind with AlphaFold and docking.</li>
-    <li>Suggesting your next experiments automatically — so you don’t waste months on dead-end assays.</li>
-  </ul>
-
-  <blockquote>
-    “Biology shouldn’t be an exclusive club for pharma giants. It should be a <span class="highlight">playground for everyone</span> — even cracked high schoolers hacking proteins at 2am.”
-  </blockquote>
-
-  <h2>I’m Looking for the Cracked Ones:</h2>
-  <ul>
-    <li>High schoolers who want to build the next drug company.</li>
-    <li>College students sick of waiting for a PhD to innovate.</li>
-    <li>Indie labs running bio moonshots on ramen budgets.</li>
-  </ul>
-
-  <p>
-    Because biotech’s future belongs to the rebels, the dreamers, and the <span class="highlight">cracked builders</span> who refuse to wait for permission.
-  </p>
-
-  <h2>Want In?</h2>
-  <ul>
-    <li>Follow ProSynth Bio.</li>
-    <li>Repost this.</li>
-    <li>Drop your email — and tell me the <span class="highlight">craziest thing</span> you’ve ever built.</li>
-  </ul>
-
-  <a href="mailto:hello@prosynthbio.com" class="cta">Join the Movement</a>
-
-  <footer>
-    © 2025 ProSynth Bi
+</body>
+</html>
