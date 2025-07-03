@@ -34,6 +34,8 @@
             z-index: -1;
             top: 0;
             left: 0;
+            /* TEMPORARY: Add a background for debugging if particles still don't show */
+            /* background-color: rgba(0, 255, 0, 0.1); */ /* Uncomment this line to see if the particles canvas is being rendered */
         }
 
         .content {
@@ -168,7 +170,7 @@
         <h1>🚀 The ProSynth Bio Manifesto</h1>
 
         <blockquote>
-            “Why the heck can an <span class="highlight">8-year-old</span> build a video game—but not cure cancer?”
+            “Why the hell can an <span class="highlight">8-year-old</span> build a video game—but not cure cancer?”
         </blockquote>
 
         <p>
@@ -252,64 +254,118 @@
     </div>
 
     <script>
-        // Ensure the DOM is fully loaded before initializing tsParticles
         document.addEventListener('DOMContentLoaded', function() {
             tsParticles.load("tsparticles", {
+                // Background color (optional, but good to define explicitly if needed)
+                background: {
+                    color: {
+                        value: "#000000" // Ensure background is black
+                    }
+                },
+                fpsLimit: 60, // Limit frames per second for performance
                 particles: {
                     number: {
-                        value: 80,
+                        value: 100, // Slightly more particles for a denser feel
                         density: {
                             enable: true,
-                            area: 800
+                            area: 900 // Spread them a bit more evenly
+                        }
+                    },
+                    color: {
+                        value: "#F8F8F8", // A very light grey, almost white (ensures visibility)
+                        // This was the incomplete part, now fixed:
+                        animation: {
+                            enable: true,
+                            speed: 20, // Speed of color animation
+                            sync: true,
+                            // From white to a subtle red, then back
+                            startValue: "random", // Start animation from random point
+                            // Interpolate between the `value` color and a target color
+                            // This will make them subtly shift towards red and back
+                            mode: "random"
+                        }
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    opacity: {
+                        value: 0.5, // Slightly lower base opacity for more subtle glow
+                        random: true, // Randomize initial opacity
+                        animation: {
+                            enable: true,
+                            speed: 1,
+                            minimumValue: 0.1, // Particles can fade out more
+                            sync: false,
+                            startValue: "random",
+                            destroy: "none"
+                        }
+                    },
+                    size: {
+                        value: { min: 1, max: 4 }, // Range of sizes for variety
+                        random: true,
+                        animation: {
+                            enable: true,
+                            speed: 2,
+                            minimumValue: 1, // Minimum size during animation
+                            sync: false,
+                            startValue: "random",
+                            destroy: "none"
+                        }
+                    },
+                    links: {
+                        enable: true,
+                        distance: 150,
+                        color: "#B0B0B0", // Slightly darker lines for better contrast
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1, // Base speed
+                        direction: "none",
+                        random: true, // Randomize direction slightly
+                        straight: false, // Allow curved paths
+                        outModes: {
+                            default: "out"
+                        },
+                        attract: { // Particles subtly attract to each other
+                            enable: false, // Let's keep this off for now, can be intense
+                            rotateX: 600,
+                            rotateY: 1200
                         }
                     }
                 },
-                color: {
-                    value: "#ffffff"
-                },
-                shape: {
-                    type: "circle"
-                },
-                opacity: {
-                    value: 0.3,
-                    random: false
-                },
-                size: {
-                    value: 3,
-                    random: true
-                },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    outModes: {
-                        default: "out"
+                interactivity: {
+                    events: {
+                        onHover: {
+                            enable: true,
+                            mode: ["grab", "repulse"] // Added "grab" effect
+                        },
+                        onClick: {
+                            enable: true,
+                            mode: "push" // Click to add more particles
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: { // Configuration for the grab effect
+                            distance: 140,
+                            links: {
+                                opacity: 0.5 // Lines become more visible on hover grab
+                            }
+                        },
+                        repulse: {
+                            distance: 100,
+                            duration: 0.4
+                        },
+                        push: { // Configuration for push effect
+                            quantity: 4
+                        }
                     }
                 },
-                links: {
-                    enable: true,
-                    distance: 150,
-                    color: "#ffffff",
-                    opacity: 0.2,
-                    width: 1
-                }
-            },
-            interactivity: {
-                events: {
-                    onHover: {
-                        enable: true,
-                        mode: "repulse"
-                    }
-                },
-                modes: {
-                    repulse: {
-                        distance: 100
-                    }
-                }
-            },
-            detectRetina: true
+                detectRetina: true
+            });
         });
-        }); // End of DOMContentLoaded
     </script>
 
 </body>
