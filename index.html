@@ -6,8 +6,6 @@
     <title>ProSynth Bio — Manifesto</title>
     <link rel="icon" href="logo.png" type="image/png"/>
 
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
-
     <style>
         :root {
             --bg-color: #000000;
@@ -22,28 +20,28 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            background-color: var(--bg-color);
+            /* Removed --bg-color and added animated radial gradient */
+            background: radial-gradient(circle at 10% 20%, #110000 0%, #000000 25%, #030303 50%, #000000 75%, #110000 100%);
+            background-size: 300% 300%; /* Make gradient very large for panning effect */
+            animation: backgroundPan 25s ease infinite alternate; /* Slow, smooth pan animation */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
             overflow-x: hidden;
         }
 
-        #tsparticles {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            top: 0;
-            left: 0;
-            /* TEMPORARY: Add a background for debugging if particles still don't show */
-            /* background-color: rgba(0, 255, 0, 0.1); */ /* Uncomment this line to see if the particles canvas is being rendered */
+        /* Keyframes for the animated background */
+        @keyframes backgroundPan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
         }
+
+        /* Removed #tsparticles as it's no longer used */
 
         .content {
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 40px;
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Ensure content is above background */
             text-align: left;
         }
 
@@ -77,6 +75,18 @@
             -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
             white-space: nowrap;
+            /* New: Brand header glow animation */
+            animation: brandGlow 3s ease-in-out infinite alternate;
+        }
+
+        /* Keyframes for the brand header glow */
+        @keyframes brandGlow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+            }
+            to {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+            }
         }
 
         h1 {
@@ -158,8 +168,6 @@
     </style>
 </head>
 <body>
-
-    <div id="tsparticles"></div>
 
     <div class="content">
         <div class="brand-header">
@@ -253,120 +261,5 @@
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            tsParticles.load("tsparticles", {
-                // Background color (optional, but good to define explicitly if needed)
-                background: {
-                    color: {
-                        value: "#000000" // Ensure background is black
-                    }
-                },
-                fpsLimit: 60, // Limit frames per second for performance
-                particles: {
-                    number: {
-                        value: 100, // Slightly more particles for a denser feel
-                        density: {
-                            enable: true,
-                            area: 900 // Spread them a bit more evenly
-                        }
-                    },
-                    color: {
-                        value: "#F8F8F8", // A very light grey, almost white (ensures visibility)
-                        // This was the incomplete part, now fixed:
-                        animation: {
-                            enable: true,
-                            speed: 20, // Speed of color animation
-                            sync: true,
-                            // From white to a subtle red, then back
-                            startValue: "random", // Start animation from random point
-                            // Interpolate between the `value` color and a target color
-                            // This will make them subtly shift towards red and back
-                            mode: "random"
-                        }
-                    },
-                    shape: {
-                        type: "circle"
-                    },
-                    opacity: {
-                        value: 0.5, // Slightly lower base opacity for more subtle glow
-                        random: true, // Randomize initial opacity
-                        animation: {
-                            enable: true,
-                            speed: 1,
-                            minimumValue: 0.1, // Particles can fade out more
-                            sync: false,
-                            startValue: "random",
-                            destroy: "none"
-                        }
-                    },
-                    size: {
-                        value: { min: 1, max: 4 }, // Range of sizes for variety
-                        random: true,
-                        animation: {
-                            enable: true,
-                            speed: 2,
-                            minimumValue: 1, // Minimum size during animation
-                            sync: false,
-                            startValue: "random",
-                            destroy: "none"
-                        }
-                    },
-                    links: {
-                        enable: true,
-                        distance: 150,
-                        color: "#B0B0B0", // Slightly darker lines for better contrast
-                        opacity: 0.2,
-                        width: 1
-                    },
-                    move: {
-                        enable: true,
-                        speed: 1, // Base speed
-                        direction: "none",
-                        random: true, // Randomize direction slightly
-                        straight: false, // Allow curved paths
-                        outModes: {
-                            default: "out"
-                        },
-                        attract: { // Particles subtly attract to each other
-                            enable: false, // Let's keep this off for now, can be intense
-                            rotateX: 600,
-                            rotateY: 1200
-                        }
-                    }
-                },
-                interactivity: {
-                    events: {
-                        onHover: {
-                            enable: true,
-                            mode: ["grab", "repulse"] // Added "grab" effect
-                        },
-                        onClick: {
-                            enable: true,
-                            mode: "push" // Click to add more particles
-                        },
-                        resize: true
-                    },
-                    modes: {
-                        grab: { // Configuration for the grab effect
-                            distance: 140,
-                            links: {
-                                opacity: 0.5 // Lines become more visible on hover grab
-                            }
-                        },
-                        repulse: {
-                            distance: 100,
-                            duration: 0.4
-                        },
-                        push: { // Configuration for push effect
-                            quantity: 4
-                        }
-                    }
-                },
-                detectRetina: true
-            });
-        });
-    </script>
-
-</body>
+    </body>
 </html>
