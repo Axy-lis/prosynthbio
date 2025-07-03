@@ -1,300 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ProSynth Bio — Manifesto</title>
-  <link rel="icon" href="logo.png" type="image/png"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProSynth Bio — Manifesto</title>
+    <link rel="icon" href="logo.png" type="image/png"/>
 
-  <!-- tsParticles CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
 
-  <style>
-    :root {
-      --bg-color: #000000;
-      --text-gradient: linear-gradient(to bottom, #ffffff, #888888);
-      --highlight-color: #ff3b30;
-      --highlight-glow: #ff3b30;
-      --button-gradient: linear-gradient(90deg, #ff3b30, #b22222);
-      --button-gradient-hover: linear-gradient(90deg, #ff6f61, #b22222);
-    }
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-gradient: linear-gradient(to bottom, #ffffff, #888888);
+            --highlight-color: #ff3b30;
+            --highlight-glow: #ff3b30;
+            --button-gradient: linear-gradient(90deg, #ff3b30, #b22222);
+            --button-gradient-hover: linear-gradient(90deg, #ff6f61, #b22222);
+        }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: var(--bg-color);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-      overflow-x: hidden;
-    }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+            overflow-x: hidden;
+        }
 
-    #tsparticles {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
-    }
+        #tsparticles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
 
-    .content {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 40px;
-      position: relative;
-      z-index: 2;
-      text-align: left;
-    }
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
 
-    body * {
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-    }
+        body * {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
 
-    p, li, ul, h1, h2, blockquote, footer {
-      background-image: var(--text-gradient);
-    }
+        p, li, ul, h1, h2, blockquote, footer {
+            background-image: var(--text-gradient);
+        }
 
-    .brand-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 60px;
-    }
+        .brand-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+        }
 
-    .brand-header img {
-      height: 80px;
-      margin-right: 20px;
-    }
+        .brand-header img {
+            height: 80px;
+            margin-right: 20px;
+        }
 
-    .brand-header span {
-      font-size: 2.2em;
-      font-weight: 700;
-      background-image: var(--text-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.5px;
-      white-space: nowrap;
-    }
+        .brand-header span {
+            font-size: 2.2em;
+            font-weight: 700;
+            background-image: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 40px;
-    }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 40px;
+        }
 
-    h2 {
-      font-size: 2em;
-      margin: 50px 0 20px;
-    }
+        h2 {
+            font-size: 2em;
+            margin: 50px 0 20px;
+        }
 
-    blockquote {
-      font-size: 1.6em;
-      margin: 50px 0;
-      border-left: 4px solid var(--highlight-color);
-      padding-left: 20px;
-      font-style: italic;
-    }
+        blockquote {
+            font-size: 1.6em;
+            margin: 50px 0;
+            border-left: 4px solid var(--highlight-color);
+            padding-left: 20px;
+            font-style: italic;
+        }
 
-    p, li {
-      font-size: 1.3em;
-      margin-bottom: 25px;
-      line-height: 1.8;
-    }
+        p, li {
+            font-size: 1.3em;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
 
-    ul {
-      margin-top: 20px;
-      padding-left: 40px;
-    }
+        ul {
+            margin-top: 20px;
+            padding-left: 40px;
+        }
 
-    .highlight {
-      background: var(--highlight-color);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-      animation: glow 1.5s infinite alternate;
-    }
+        .highlight {
+            background: var(--highlight-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            animation: glow 1.5s infinite alternate;
+        }
 
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 5px var(--highlight-glow), 0 0 10px var(--highlight-glow);
-      }
-      to {
-        text-shadow: 0 0 15px var(--highlight-glow), 0 0 25px var(--highlight-glow);
-      }
-    }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px var(--highlight-glow), 0 0 10px var(--highlight-glow);
+            }
+            to {
+                text-shadow: 0 0 15px var(--highlight-glow), 0 0 25px var(--highlight-glow);
+            }
+        }
 
-    .cta {
-      display: inline-block;
-      margin-top: 50px;
-      padding: 16px 36px;
-      background: var(--button-gradient);
-      -webkit-text-fill-color: #000;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.3em;
-      border-radius: 30px;
-      transition: background 0.4s ease, transform 0.2s ease;
-    }
+        .cta {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 16px 36px;
+            background: var(--button-gradient);
+            -webkit-text-fill-color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.3em;
+            border-radius: 30px;
+            transition: background 0.4s ease, transform 0.2s ease;
+        }
 
-    .cta:hover {
-      background: var(--button-gradient-hover);
-      transform: translateY(-2px);
-    }
+        .cta:hover {
+            background: var(--button-gradient-hover);
+            transform: translateY(-2px);
+        }
 
-    footer {
-      margin-top: 80px;
-      font-size: 1em;
-      border-top: 1px solid #333;
-      padding-top: 30px;
-      color: #666;
-    }
-  </style>
+        footer {
+            margin-top: 80px;
+            font-size: 1em;
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            color: #666;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #333;
+            margin: 80px 0;
+        }
+    </style>
 </head>
 <body>
 
-  <div id="tsparticles"></div>
+    <div id="tsparticles"></div>
 
-  <div class="content">
-    <div class="brand-header">
-      <img src="logo.png" alt="ProSynth Bio Logo" />
-      <span>ProSynth Bio</span>
+    <div class="content">
+        <div class="brand-header">
+            <img src="logo.png" alt="ProSynth Bio Logo" />
+            <span>ProSynth Bio</span>
+        </div>
+
+        <h1>🚀 The ProSynth Bio Manifesto</h1>
+
+        <blockquote>
+            “Why the hell can an <span class="highlight">8-year-old</span> build a video game—but not cure cancer?”
+        </blockquote>
+
+        <p>
+            Drug discovery should be as easy as coding a website.
+        </p>
+
+        <p>
+            But right now, biology is locked behind:
+        </p>
+
+        <ul>
+            <li>paywalls</li>
+            <li>PhDs</li>
+            <li>billion-dollar labs</li>
+        </ul>
+
+        <p>
+            <span class="highlight">I’m done waiting.</span>
+        </p>
+
+        <p>
+            I’m building <strong>ProSynth Bio</strong> — <em>the <span class="highlight">Cure-Anything Copilot</span>.</em>
+        </p>
+
+        <p>
+            Tools so simple that even an <span class="highlight">8-year-old</span> could cure cancer.
+        </p>
+
+        <hr>
+
+        <h2>Here’s What I’ve Already Built:</h2>
+        <ul>
+            <li>ProtBERT transforms protein sequences into math.</li>
+            <li>Search tools to discover which molecules look alike.</li>
+            <li>3D protein structures spinning live in your browser.</li>
+        </ul>
+
+        <p>
+            Cool. But that’s just the sandbox.
+        </p>
+
+        <hr>
+
+        <h2>Here’s Where I’m Going Next:</h2>
+        <ul>
+            <li>Mining papers and patents with BioBERT — so you know every discovery and legal landmine before you even start.</li>
+            <li>Generating new proteins and peptides with ProtGPT2 — therapeutics no human’s ever typed out before.</li>
+            <li>Predicting how molecules fold and bind with AlphaFold and docking.</li>
+            <li>Suggesting your next experiments automatically — so you don’t waste months on dead-end assays.</li>
+        </ul>
+
+        <blockquote>
+            “Biology shouldn’t be an exclusive club for pharma giants. It should be a <span class="highlight">playground for everyone</span> — even cracked high schoolers hacking proteins at 2am.”
+        </blockquote>
+
+        <hr>
+
+        <h2>I’m Looking for the Cracked Ones:</h2>
+        <ul>
+            <li>High schoolers who want to build the next drug company.</li>
+            <li>College students sick of waiting for a PhD to innovate.</li>
+            <li>Indie labs running bio moonshots on ramen budgets.</li>
+        </ul>
+
+        <p>
+            Because biotech’s future belongs to the rebels, the dreamers, and the <span class="highlight">cracked builders</span> who refuse to wait for permission.
+        </p>
+
+        <hr>
+
+        <h2>Want In?</h2>
+        <p>
+            Drop your email below — and tell me the <span class="highlight">craziest thing</span> you’ve ever built.
+        </p>
+
+        <a href="mailto:hello@prosynthbio.com" class="cta">Join the Movement</a>
+
+        <footer>
+            © 2025 ProSynth Bio — Dragging biotech into the future.
+        </footer>
     </div>
 
-    <h1>🚀 The ProSynth Bio Manifesto</h1>
-
-    <blockquote>
-      “Why the hell can an <span class="highlight">8-year-old</span> build a video game—but not cure cancer?”
-    </blockquote>
-
-    <p>
-      Drug discovery should be as easy as coding a website.
-    </p>
-
-    <p>
-      But right now, biology is locked behind:
-    </p>
-
-    <ul>
-      <li>paywalls</li>
-      <li>PhDs</li>
-      <li>billion-dollar labs</li>
-    </ul>
-
-    <p>
-      <span class="highlight">I’m done waiting.</span>
-    </p>
-
-    <p>
-      I’m building <strong>ProSynth Bio</strong> — <em>the <span class="highlight">Cure-Anything Copilot</span>.</em>
-    </p>
-
-    <p>
-      Tools so simple that even an <span class="highlight">8-year-old</span> could cure cancer.
-    </p>
-
-    <h2>Here’s What I’ve Already Built:</h2>
-    <ul>
-      <li>ProtBERT transforms protein sequences into math.</li>
-      <li>Search tools to discover which molecules look alike.</li>
-      <li>3D protein structures spinning live in your browser.</li>
-    </ul>
-
-    <p>
-      Cool. But that’s just the sandbox.
-    </p>
-
-    <h2>Here’s Where I’m Going Next:</h2>
-    <ul>
-      <li>Mining papers and patents with BioBERT — so you know every discovery and legal landmine before you even start.</li>
-      <li>Generating new proteins and peptides with ProtGPT2 — therapeutics no human’s ever typed out before.</li>
-      <li>Predicting how molecules fold and bind with AlphaFold and docking.</li>
-      <li>Suggesting your next experiments automatically — so you don’t waste months on dead-end assays.</li>
-    </ul>
-
-    <blockquote>
-      “Biology shouldn’t be an exclusive club for pharma giants. It should be a <span class="highlight">playground for everyone</span> — even cracked high schoolers hacking proteins at 2am.”
-    </blockquote>
-
-    <h2>I’m Looking for the Cracked Ones:</h2>
-    <ul>
-      <li>High schoolers who want to build the next drug company.</li>
-      <li>College students sick of waiting for a PhD to innovate.</li>
-      <li>Indie labs running bio moonshots on ramen budgets.</li>
-    </ul>
-
-    <p>
-      Because biotech’s future belongs to the rebels, the dreamers, and the <span class="highlight">cracked builders</span> who refuse to wait for permission.
-    </p>
-
-    <h2>Want In?</h2>
-    <p>
-      Drop your email below — and tell me the <span class="highlight">craziest thing</span> you’ve ever built.
-    </p>
-
-    <a href="mailto:hello@prosynthbio.com" class="cta">Join the Movement</a>
-
-    <footer>
-      © 2025 ProSynth Bio — Dragging biotech into the future.
-    </footer>
-  </div>
-
-  <script>
-    tsParticles.load("tsparticles", {
-      particles: {
-        number: {
-          value: 80,
-          density: {
-            enable: true,
-            area: 800
-          }
-        },
-        color: {
-          value: "#ffffff"
-        },
-        shape: {
-          type: "circle"
-        },
-        opacity: {
-          value: 0.3,
-          random: false
-        },
-        size: {
-          value: 3,
-          random: true
-        },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: "none",
-          outModes: {
-            default: "out"
-          }
-        },
-        links: {
-          enable: true,
-          distance: 150,
-          color: "#ffffff",
-          opacity: 0.2,
-          width: 1
-        }
-      },
-      interactivity: {
-        events: {
-          onHover: {
-            enable: true,
-            mode: "repulse"
-          }
-        },
-        modes: {
-          repulse: {
-            distance: 100
-          }
-        }
-      },
-      detectRetina: true
-    });
-  </script>
+    <script>
+        // Ensure the DOM is fully loaded before initializing tsParticles
+        document.addEventListener('DOMContentLoaded', function() {
+            tsParticles.load("tsparticles", {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            area: 800
+                        }
+                    }
+                },
+                color: {
+                    value: "#ffffff"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.3,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    outModes: {
+                        default: "out"
+                    }
+                },
+                links: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.2,
+                    width: 1
+                }
+            },
+            interactivity: {
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: "repulse"
+                    }
+                },
+                modes: {
+                    repulse: {
+                        distance: 100
+                    }
+                }
+            },
+            detectRetina: true
+        });
+        }); // End of DOMContentLoaded
+    </script>
 
 </body>
 </html>
