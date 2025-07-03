@@ -8,10 +8,11 @@
   <style>
     :root {
       --bg-color: #000000;
-      --text-gradient: linear-gradient(to bottom, #ffffff, #999999);
-      --accent-gradient: linear-gradient(90deg, #00f2fe, #4facfe);
-      --accent-hover: linear-gradient(90deg, #33f2ff, #6ecbff);
+      --text-gradient: linear-gradient(to bottom, #ffffff, #888888);
       --highlight-color: #ff3b30;
+      --highlight-glow: #ff3b30;
+      --button-gradient: linear-gradient(90deg, #ff3b30, #b22222);
+      --button-gradient-hover: linear-gradient(90deg, #ff6f61, #b22222);
     }
 
     body {
@@ -48,7 +49,7 @@
     .brand-header span {
       font-size: 2.2em;
       font-weight: 700;
-      background: var(--accent-gradient);
+      background-image: var(--text-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.5px;
@@ -57,19 +58,17 @@
     h1 {
       font-size: 3em;
       margin-bottom: 20px;
-      background: var(--accent-gradient);
     }
 
     h2 {
       font-size: 2em;
       margin-bottom: 20px;
-      background: var(--accent-gradient);
     }
 
     blockquote {
       font-size: 1.6em;
       margin: 30px 0;
-      border-left: 4px solid #4facfe;
+      border-left: 4px solid var(--highlight-color);
       padding-left: 20px;
       font-style: italic;
     }
@@ -89,13 +88,23 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px var(--highlight-glow), 0 0 10px var(--highlight-glow);
+      }
+      to {
+        text-shadow: 0 0 15px var(--highlight-glow), 0 0 25px var(--highlight-glow);
+      }
     }
 
     .cta {
       display: inline-block;
       margin-top: 40px;
       padding: 14px 28px;
-      background: var(--accent-gradient);
+      background: var(--button-gradient);
       -webkit-text-fill-color: #000;
       text-decoration: none;
       font-weight: 600;
@@ -105,7 +114,7 @@
     }
 
     .cta:hover {
-      background: var(--accent-hover);
+      background: var(--button-gradient-hover);
       transform: translateY(-2px);
     }
 
@@ -114,7 +123,6 @@
       font-size: 0.9em;
       border-top: 1px solid #333;
       padding-top: 20px;
-      background-image: var(--text-gradient);
     }
   </style>
 </head>
@@ -201,8 +209,4 @@
   <a href="mailto:hello@prosynthbio.com" class="cta">Join the Movement</a>
 
   <footer>
-    © 2025 ProSynth Bio — Dragging biotech into the future.
-  </footer>
-
-</body>
-</html>
+    © 2025 ProSynth Bi
