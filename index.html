@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ProSynth Bio — Manifesto</title>
   <link rel="icon" href="logo.png" type="image/png"/>
-
-  <!-- Load Particles.js from CDN -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
   <style>
     :root {
       --bg-color: #000000;
@@ -28,13 +24,71 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
     }
 
-    #particles-js {
+    /* Particle dots */
+    .particles {
       position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .particles span {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: move linear infinite;
+    }
+
+    /* Randomize particles */
+    .particles span:nth-child(1) {
+      left: 10%;
+      animation-duration: 15s;
+      animation-delay: 0s;
+      top: 90%;
+    }
+    .particles span:nth-child(2) {
+      left: 25%;
+      animation-duration: 12s;
+      animation-delay: 2s;
+      top: 100%;
+    }
+    .particles span:nth-child(3) {
+      left: 50%;
+      animation-duration: 20s;
+      animation-delay: 4s;
+      top: 95%;
+    }
+    .particles span:nth-child(4) {
+      left: 75%;
+      animation-duration: 18s;
+      animation-delay: 1s;
+      top: 110%;
+    }
+    .particles span:nth-child(5) {
+      left: 90%;
+      animation-duration: 14s;
+      animation-delay: 3s;
+      top: 105%;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translateY(0);
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-120vh);
+        opacity: 0.3;
+      }
     }
 
     .content {
@@ -150,8 +204,14 @@
 </head>
 <body>
 
-  <!-- Particles Background -->
-  <div id="particles-js"></div>
+  <!-- Pure CSS particles background -->
+  <div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
   <div class="content">
     <div class="brand-header">
@@ -236,67 +296,6 @@
       © 2025 ProSynth Bio — Dragging biotech into the future.
     </footer>
   </div>
-
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": { "enable": true, "value_area": 800 }
-        },
-        "color": {
-          "value": "#ffffff"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": { "width": 0, "color": "#000000" }
-        },
-        "opacity": {
-          "value": 0.3,
-          "random": false
-        },
-        "size": {
-          "value": 3,
-          "random": true
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.2,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 2,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "repulse": { "distance": 100 },
-          "push": { "particles_nb": 4 }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
 
 </body>
 </html>
