@@ -8,19 +8,30 @@
   <style>
     :root {
       --bg-color: #000000;
-      --text-color: #e0e0e0;
+      --text-gradient: linear-gradient(to bottom, #ffffff, #999999);
       --accent-gradient: linear-gradient(90deg, #00f2fe, #4facfe);
       --accent-hover: linear-gradient(90deg, #33f2ff, #6ecbff);
+      --highlight-color: #ff3b30;
     }
 
     body {
       margin: 0;
       background: var(--bg-color);
-      color: var(--text-color);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
       padding: 40px;
       line-height: 1.6;
       font-weight: 300;
+    }
+
+    body * {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p, li, ul, h1, h2, blockquote, footer {
+      background-image: var(--text-gradient);
     }
 
     .brand-header {
@@ -43,22 +54,16 @@
       letter-spacing: -0.5px;
     }
 
-    h1, h2, blockquote {
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-      margin-top: 40px;
-    }
-
     h1 {
       font-size: 3em;
       margin-bottom: 20px;
+      background: var(--accent-gradient);
     }
 
     h2 {
       font-size: 2em;
       margin-bottom: 20px;
+      background: var(--accent-gradient);
     }
 
     blockquote {
@@ -72,7 +77,6 @@
     p, li {
       font-size: 1.2em;
       margin-bottom: 20px;
-      color: var(--text-color);
     }
 
     ul {
@@ -80,12 +84,19 @@
       padding-left: 30px;
     }
 
+    .highlight {
+      background: var(--highlight-color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
     .cta {
       display: inline-block;
       margin-top: 40px;
       padding: 14px 28px;
       background: var(--accent-gradient);
-      color: #000;
+      -webkit-text-fill-color: #000;
       text-decoration: none;
       font-weight: 600;
       font-size: 1.2em;
@@ -101,9 +112,9 @@
     footer {
       margin-top: 60px;
       font-size: 0.9em;
-      color: #666;
       border-top: 1px solid #333;
       padding-top: 20px;
+      background-image: var(--text-gradient);
     }
   </style>
 </head>
@@ -117,7 +128,7 @@
   <h1>🚀 The ProSynth Bio Manifesto</h1>
 
   <blockquote>
-    “Why the hell can an 8-year-old build a video game—but not cure cancer?”
+    “Why the hell can an <span class="highlight">8-year-old</span> build a video game—but not cure cancer?”
   </blockquote>
 
   <p>
@@ -135,15 +146,15 @@
   </ul>
 
   <p>
-    I’m done waiting.
+    <span class="highlight">I’m done waiting.</span>
   </p>
 
   <p>
-    I’m building <strong>ProSynth Bio</strong> — <em>the Cure-Anything Copilot.</em>
+    I’m building <strong>ProSynth Bio</strong> — <em>the <span class="highlight">Cure-Anything Copilot</span>.</em>
   </p>
 
   <p>
-    Tools so simple that even an 8-year-old could cure cancer.
+    Tools so simple that even an <span class="highlight">8-year-old</span> could cure cancer.
   </p>
 
   <h2>Here’s What I’ve Already Built:</h2>
@@ -166,7 +177,7 @@
   </ul>
 
   <blockquote>
-    “Biology shouldn’t be an exclusive club for pharma giants. It should be a playground for everyone — even cracked high schoolers hacking proteins at 2am.”
+    “Biology shouldn’t be an exclusive club for pharma giants. It should be a <span class="highlight">playground for everyone</span> — even cracked high schoolers hacking proteins at 2am.”
   </blockquote>
 
   <h2>I’m Looking for the Cracked Ones:</h2>
@@ -177,14 +188,14 @@
   </ul>
 
   <p>
-    Because biotech’s future belongs to the rebels, the dreamers, and the cracked builders who refuse to wait for permission.
+    Because biotech’s future belongs to the rebels, the dreamers, and the <span class="highlight">cracked builders</span> who refuse to wait for permission.
   </p>
 
   <h2>Want In?</h2>
   <ul>
     <li>Follow ProSynth Bio.</li>
     <li>Repost this.</li>
-    <li>Drop your email — and tell me the craziest thing you’ve ever built.</li>
+    <li>Drop your email — and tell me the <span class="highlight">craziest thing</span> you’ve ever built.</li>
   </ul>
 
   <a href="mailto:hello@prosynthbio.com" class="cta">Join the Movement</a>
