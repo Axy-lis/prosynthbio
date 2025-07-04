@@ -86,11 +86,13 @@
     h1 {
       font-size: 3em;
       margin-bottom: 40px;
+      text-shadow: 0 0 10px var(--highlight-glow), 0 0 20px var(--highlight-glow);
     }
 
     h2 {
       font-size: 2em;
       margin: 50px 0 20px;
+      text-shadow: 0 0 10px var(--highlight-glow), 0 0 20px var(--highlight-glow);
     }
 
     blockquote {
@@ -99,6 +101,7 @@
       border-left: 4px solid var(--highlight-color);
       padding-left: 20px;
       font-style: italic;
+      text-shadow: 0 0 10px var(--highlight-glow);
     }
 
     p, li {
@@ -117,24 +120,20 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
-      animation: pulseGlow 1.5s infinite alternate;
-    }
-
-    @keyframes pulseGlow {
-      from {
-        text-shadow: 0 0 6px var(--highlight-glow);
-      }
-      to {
-        text-shadow: 0 0 18px var(--highlight-glow);
-      }
+      text-shadow:
+        0 0 8px var(--highlight-glow),
+        0 0 16px var(--highlight-glow),
+        0 0 32px var(--highlight-glow);
+      filter: drop-shadow(0 0 10px var(--highlight-glow));
     }
 
     .cta-section {
       background: radial-gradient(circle, rgba(255, 59, 48, 0.2) 0%, transparent 80%);
-      padding: 40px;
+      padding: 60px;
+      margin: 80px 0;
       border-radius: 16px;
-      margin-top: 80px;
-      text-align: center;
+      overflow: visible;
+      position: relative;
     }
 
     .cta-buttons {
@@ -158,10 +157,12 @@
     .cta-primary {
       background: var(--button-gradient);
       -webkit-text-fill-color: #000;
+      box-shadow: 0 0 15px var(--highlight-glow);
     }
 
     .cta-primary:hover {
       background: var(--button-gradient-hover);
+      box-shadow: 0 0 30px #ff6f61;
       transform: translateY(-2px);
     }
 
@@ -169,11 +170,13 @@
       border: 2px solid var(--highlight-color);
       -webkit-text-fill-color: var(--highlight-color);
       background: transparent;
+      box-shadow: 0 0 10px var(--highlight-glow);
     }
 
     .cta-secondary:hover {
       background: var(--highlight-color);
       -webkit-text-fill-color: #000;
+      box-shadow: 0 0 20px var(--highlight-glow);
       transform: translateY(-2px);
     }
 
