@@ -117,33 +117,63 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
-      animation: glow 1.5s infinite alternate;
+      animation: pulseGlow 1.5s infinite alternate;
     }
 
-    @keyframes glow {
+    @keyframes pulseGlow {
       from {
-        text-shadow: 0 0 5px var(--highlight-glow), 0 0 10px var(--highlight-glow);
+        text-shadow: 0 0 6px var(--highlight-glow);
       }
       to {
-        text-shadow: 0 0 15px var(--highlight-glow), 0 0 25px var(--highlight-glow);
+        text-shadow: 0 0 18px var(--highlight-glow);
       }
     }
 
-    .cta {
+    .cta-section {
+      background: radial-gradient(circle, rgba(255, 59, 48, 0.2) 0%, transparent 80%);
+      padding: 40px;
+      border-radius: 16px;
+      margin-top: 80px;
+      text-align: center;
+    }
+
+    .cta-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta-primary, .cta-secondary {
       display: inline-block;
-      margin-top: 50px;
       padding: 16px 36px;
-      background: var(--button-gradient);
-      -webkit-text-fill-color: #000;
-      text-decoration: none;
       font-weight: 600;
       font-size: 1.3em;
       border-radius: 30px;
-      transition: background 0.4s ease, transform 0.2s ease;
+      text-decoration: none;
+      transition: all 0.4s ease;
     }
 
-    .cta:hover {
+    .cta-primary {
+      background: var(--button-gradient);
+      -webkit-text-fill-color: #000;
+    }
+
+    .cta-primary:hover {
       background: var(--button-gradient-hover);
+      transform: translateY(-2px);
+    }
+
+    .cta-secondary {
+      border: 2px solid var(--highlight-color);
+      -webkit-text-fill-color: var(--highlight-color);
+      background: transparent;
+    }
+
+    .cta-secondary:hover {
+      background: var(--highlight-color);
+      -webkit-text-fill-color: #000;
       transform: translateY(-2px);
     }
 
@@ -154,6 +184,7 @@
       padding-top: 30px;
       color: #666;
     }
+
     hr {
       border: none;
       border-top: 1px solid #333;
@@ -191,7 +222,7 @@
     </p>
 
     <blockquote>
-      “Why the heck can an <span class="highlight">8-year-old</span> can build a video game—but not discover the cure to cancer?”
+      “Why the heck can an <span class="highlight">8-year-old</span> build a video game—but not discover the cure to cancer?”
     </blockquote>
 
     <hr>
@@ -240,13 +271,16 @@
 
     <hr>
 
-    <h2>Come Build With Us</h2>
-    <p>
-      Share your email—and tell me the <span class="highlight">wildest thing</span> you’ve ever built.
-    </p>
-    
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLmKzZu2RzLU1O2F9rGXIlN_1HaeLVlvGzb6LeD1A6nonX-Q/viewform?usp=header" class="cta">Build with us</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1fMNEafcKW1smmilmNugWYTx_2wN8ozM1q21D1rQckqGpXA/viewform?usp=header" class="cta">Join the Movement</a>
+    <div class="cta-section">
+      <h2>Come Build With Us</h2>
+      <p>
+        Share your email—and tell me the <span class="highlight">wildest thing</span> you’ve ever built.
+      </p>
+      <div class="cta-buttons">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1fMNEafcKW1smmilmNugWYTx_2wN8ozM1q21D1rQckqGpXA/viewform?usp=header" class="cta-primary">Join the Movement 🚀</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLmKzZu2RzLU1O2F9rGXIlN_1HaeLVlvGzb6LeD1A6nonX-Q/viewform?usp=header" class="cta-secondary">Build with Us</a>
+      </div>
+    </div>
 
     <footer>
       © 2025 ProSynth Bio — Dragging biotech into tomorrow.
