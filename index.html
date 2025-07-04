@@ -11,6 +11,7 @@
       --bg-color: #000000;
       --text-gradient: linear-gradient(to bottom, #ffffff, #888888);
       --highlight-color: #ff3b30;
+      --highlight-glow: #ff3b30;
       --button-gradient: linear-gradient(90deg, #ff3b30, #b22222);
       --button-gradient-hover: linear-gradient(90deg, #ff6f61, #b22222);
     }
@@ -70,6 +71,16 @@
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.5px;
       white-space: nowrap;
+      animation: brandGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes brandGlow {
+      from {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+      to {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+      }
     }
 
     h1 {
@@ -106,14 +117,23 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
+      animation: pulseGlow 1.5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from {
+        text-shadow: 0 0 6px var(--highlight-glow);
+      }
+      to {
+        text-shadow: 0 0 18px var(--highlight-glow);
+      }
     }
 
     .cta-section {
-      background: radial-gradient(circle, rgba(255, 59, 48, 0.1) 0%, transparent 80%);
-      padding: 60px;
-      margin: 80px 0;
+      background: radial-gradient(circle, rgba(255, 59, 48, 0.2) 0%, transparent 80%);
+      padding: 40px;
       border-radius: 16px;
-      overflow: visible;
+      margin-top: 80px;
       text-align: center;
     }
 
@@ -132,7 +152,7 @@
       font-size: 1.3em;
       border-radius: 30px;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
 
     .cta-primary {
