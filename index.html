@@ -11,7 +11,6 @@
       --bg-color: #000000;
       --text-gradient: linear-gradient(to bottom, #ffffff, #888888);
       --highlight-color: #ff3b30;
-      --highlight-glow: #ff3b30;
       --button-gradient: linear-gradient(90deg, #ff3b30, #b22222);
       --button-gradient-hover: linear-gradient(90deg, #ff6f61, #b22222);
     }
@@ -71,28 +70,16 @@
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.5px;
       white-space: nowrap;
-      animation: brandGlow 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes brandGlow {
-      from {
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
-      }
-      to {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
-      }
     }
 
     h1 {
       font-size: 3em;
       margin-bottom: 40px;
-      text-shadow: 0 0 10px var(--highlight-glow), 0 0 20px var(--highlight-glow);
     }
 
     h2 {
       font-size: 2em;
       margin: 50px 0 20px;
-      text-shadow: 0 0 10px var(--highlight-glow), 0 0 20px var(--highlight-glow);
     }
 
     blockquote {
@@ -101,7 +88,6 @@
       border-left: 4px solid var(--highlight-color);
       padding-left: 20px;
       font-style: italic;
-      text-shadow: 0 0 10px var(--highlight-glow);
     }
 
     p, li {
@@ -120,20 +106,15 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
-      text-shadow:
-        0 0 8px var(--highlight-glow),
-        0 0 16px var(--highlight-glow),
-        0 0 32px var(--highlight-glow);
-      filter: drop-shadow(0 0 10px var(--highlight-glow));
     }
 
     .cta-section {
-      background: radial-gradient(circle, rgba(255, 59, 48, 0.2) 0%, transparent 80%);
+      background: radial-gradient(circle, rgba(255, 59, 48, 0.1) 0%, transparent 80%);
       padding: 60px;
       margin: 80px 0;
       border-radius: 16px;
       overflow: visible;
-      position: relative;
+      text-align: center;
     }
 
     .cta-buttons {
@@ -151,18 +132,16 @@
       font-size: 1.3em;
       border-radius: 30px;
       text-decoration: none;
-      transition: all 0.4s ease;
+      transition: all 0.3s ease;
     }
 
     .cta-primary {
       background: var(--button-gradient);
       -webkit-text-fill-color: #000;
-      box-shadow: 0 0 15px var(--highlight-glow);
     }
 
     .cta-primary:hover {
       background: var(--button-gradient-hover);
-      box-shadow: 0 0 30px #ff6f61;
       transform: translateY(-2px);
     }
 
@@ -170,13 +149,11 @@
       border: 2px solid var(--highlight-color);
       -webkit-text-fill-color: var(--highlight-color);
       background: transparent;
-      box-shadow: 0 0 10px var(--highlight-glow);
     }
 
     .cta-secondary:hover {
       background: var(--highlight-color);
       -webkit-text-fill-color: #000;
-      box-shadow: 0 0 20px var(--highlight-glow);
       transform: translateY(-2px);
     }
 
