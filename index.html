@@ -1,92 +1,256 @@
-<div class="content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProSynth Bio — Manifesto</title>
+  <link rel="icon" href="logo.png" type="image/png"/>
+
+  <style>
+    :root {
+      --bg-color: #000000;
+      --text-gradient: linear-gradient(to bottom, #ffffff, #888888);
+      --highlight-color: #ff3b30;
+      --highlight-glow: #ff3b30;
+      --button-gradient: linear-gradient(90deg, #ff3b30, #b22222);
+      --button-gradient-hover: linear-gradient(90deg, #ff6f61, #b22222);
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: radial-gradient(circle at 10% 20%, #110000 0%, #000000 25%, #030303 50%, #000000 75%, #110000 100%);
+      background-size: 300% 300%;
+      animation: backgroundPan 25s ease infinite alternate;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      overflow-x: hidden;
+    }
+
+    @keyframes backgroundPan {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      position: relative;
+      z-index: 2;
+      text-align: left;
+    }
+
+    body * {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p, li, ul, h1, h2, blockquote, footer {
+      background-image: var(--text-gradient);
+    }
+
+    .brand-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .brand-header img {
+      height: 80px;
+      margin-right: 20px;
+    }
+
+    .brand-header span {
+      font-size: 2.2em;
+      font-weight: 700;
+      background-image: var(--text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+      animation: brandGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes brandGlow {
+      from {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+      to {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin: 50px 0 20px;
+    }
+
+    blockquote {
+      font-size: 1.6em;
+      margin: 50px 0;
+      border-left: 4px solid var(--highlight-color);
+      padding-left: 20px;
+      font-style: italic;
+    }
+
+    p, li {
+      font-size: 1.3em;
+      margin-bottom: 25px;
+      line-height: 1.8;
+    }
+
+    ul {
+      margin-top: 20px;
+      padding-left: 40px;
+    }
+
+    .highlight {
+      background: var(--highlight-color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px var(--highlight-glow), 0 0 10px var(--highlight-glow);
+      }
+      to {
+        text-shadow: 0 0 15px var(--highlight-glow), 0 0 25px var(--highlight-glow);
+      }
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 50px;
+      padding: 16px 36px;
+      background: var(--button-gradient);
+      -webkit-text-fill-color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.3em;
+      border-radius: 30px;
+      transition: background 0.4s ease, transform 0.2s ease;
+    }
+
+    .cta:hover {
+      background: var(--button-gradient-hover);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 1em;
+      border-top: 1px solid #333;
+      padding-top: 30px;
+      color: #666;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #333;
+      margin: 80px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content">
     <div class="brand-header">
-        <img src="logo.png" alt="ProSynth Bio Logo" />
-        <span>ProSynth Bio</span>
+      <img src="logo.png" alt="ProSynth Bio Logo" />
+      <span>ProSynth Bio</span>
     </div>
 
     <h1>🚀 The ProSynth Bio Manifesto</h1>
 
-    <blockquote>
-        “Why is it that an <span class="highlight">8-year-old</span> can build a video game—but not discover a cure for cancer?”
-    </blockquote>
-
     <p>
-        Drug discovery should be as effortless as coding an app.
+      We’re rebels. And we’re tired of waiting for permission.
     </p>
 
     <p>
-        Yet right now, the gates to biology are locked behind:
-    </p>
-
-    <ul>
-        <li>expensive paywalls</li>
-        <li>alphabet soup of degrees</li>
-        <li>labs that burn billions of dollars</li>
-    </ul>
-
-    <p>
-        <span class="highlight">I refuse to wait any longer.</span>
-    </p>
-
-    <p>
-        I’m building <strong>ProSynth Bio</strong> — <em>the <span class="highlight">Cure-All AI Co-Pilot</span>.</em>
-    </p>
-
-    <p>
-        Tools designed so intuitively that even an <span class="highlight">8-year-old</span> could take on cancer.
+      For decades, drug discovery has been reserved for those with PhDs, billion-dollar labs, and endless paperwork. We believe that’s nonsense.
     </p>
 
     <hr>
 
-    <h2>What’s Already Live:</h2>
-    <ul>
-        <li>ProtBERT turns protein strings into mathematical magic.</li>
-        <li>Instant search to find molecular look-alikes in seconds.</li>
-        <li>3D molecules spinning right in your browser tab.</li>
-    </ul>
-
+    <h2>Our Mission</h2>
     <p>
-        Cool—but that’s just the opening act.
+      At ProSynth Bio, we’re on a mission to make biotech as open as coding apps. Why should biology be off-limits when an <span class="highlight">8-year-old</span> can build games that run on millions of devices?
     </p>
 
-    <hr>
-
-    <h2>Here’s What’s Coming Next:</h2>
-    <ul>
-        <li>Mining every research paper and patent with BioBERT—so you’re never blindsided by prior art or IP traps.</li>
-        <li>Inventing brand-new proteins and peptides via ProtGPT2—the kinds no human’s ever dreamed up.</li>
-        <li>Predicting protein shapes and interactions with AlphaFold and molecular docking.</li>
-        <li>Recommending your next experiments automatically—to save months chasing dead ends.</li>
-    </ul>
+    <p>
+      The tools should exist for anyone — even high schoolers hacking proteins at 2am — to create lifesaving therapies.
+    </p>
 
     <blockquote>
-        “Biotech shouldn’t be reserved for giant corporations. It should be a <span class="highlight">sandbox for everyone</span>—even the cracked high schoolers hacking molecules at 2am.”
+      “Why is it that an <span class="highlight">8-year-old</span> can build a video game—but not discover a cure for cancer?”
     </blockquote>
 
     <hr>
 
-    <h2>Calling All Cracked Builders:</h2>
+    <h2>What We've Built So Far</h2>
     <ul>
-        <li>High schoolers who want to found tomorrow’s drug startups.</li>
-        <li>College students tired of waiting for credentials before they can innovate.</li>
-        <li>Indie labs betting everything on wild bio moonshots.</li>
+      <li>A platform that converts proteins into pure math with ProtBERT.</li>
+      <li>Search tools to uncover molecular lookalikes instantly.</li>
+      <li>Interactive 3D models so you can see proteins spin in real time.</li>
     </ul>
 
     <p>
-        Because the future of biotech belongs to rebels, visionaries, and <span class="highlight">cracked builders</span> who won’t wait for permission.
+      And that’s only the opening salvo.
     </p>
 
     <hr>
 
-    <h2>Ready to Join Us?</h2>
+    <h2>Where We're Headed Next</h2>
     <p>
-        Drop your email below—and tell me the <span class="highlight">wildest thing</span> you’ve ever created.
+      We’re not stopping at fancy visuals.
+    </p>
+
+    <ul>
+      <li>Digging through patents and research with BioBERT to map the unknown.</li>
+      <li>Inventing brand-new protein sequences using ProtGPT2.</li>
+      <li>Predicting how molecules bind and fold with tools like AlphaFold.</li>
+      <li>Automating experimental ideas so you waste less time and money.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Who We’re Looking For</h2>
+    <p>
+      ProSynth Bio exists for builders:
+    </p>
+
+    <ul>
+      <li>Teenagers bold enough to start the next pharma company from a bedroom.</li>
+      <li>Students who can’t wait for a degree to innovate.</li>
+      <li>Indie labs pushing bio moonshots on ramen budgets.</li>
+    </ul>
+
+    <p>
+      The future belongs to the <span class="highlight">cracked builders</span> who refuse to wait their turn.
+    </p>
+
+    <hr>
+
+    <h2>Come Build With Us</h2>
+    <p>
+      Share your email—and tell me the <span class="highlight">wildest thing</span> you’ve ever built.
     </p>
 
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1fMNEafcKW1smmilmNugWYTx_2wN8ozM1q21D1rQckqGpXA/viewform?usp=header" class="cta">Join the Movement</a>
 
     <footer>
-        © 2025 ProSynth Bio — Dragging biotech into tomorrow.
+      © 2025 ProSynth Bio — Dragging biotech into tomorrow.
     </footer>
-</div>
+  </div>
 
+</body>
+</html>
